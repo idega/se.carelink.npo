@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project>
-  <extend>${base.project.dir}/base-dependencies.xml</extend>
+  <extend>${base.project.dir}/base-project.xml</extend>
   <pomVersion>3</pomVersion>
   <name>Nationell Patientoversikt API</name>
   <groupId>bundles</groupId>
@@ -24,6 +24,26 @@
     </developer>
   </developers>
   <dependencies>
+   <dependency>
+            <groupId>axis</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.2.1</version>
+            <type>jar</type>
+            <url>http://www.ibiblio.org/maven</url>
+			<properties>
+			</properties>
+	</dependency>   
+	
+	<dependency>
+            <groupId>axis</groupId>
+            <artifactId>axis-jaxrpc</artifactId>
+            <version>1.2.1</version>
+            <type>jar</type>
+            <url>http://www.ibiblio.org/maven</url>
+			<properties>
+			</properties>
+	</dependency>   	
+	
   </dependencies>
 </project>
 
