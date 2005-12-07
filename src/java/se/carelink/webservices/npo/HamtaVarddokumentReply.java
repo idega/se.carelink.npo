@@ -8,13 +8,13 @@
 package se.carelink.webservices.npo;
 
 public class HamtaVarddokumentReply  extends se.carelink.webservices.npo.NPOMessageReply  implements java.io.Serializable {
-    private se.carelink.webservices.npo.ArrayOfKuvert kuvert;
+    private se.carelink.webservices.npo.Kuvert[] kuvert;
 
     public HamtaVarddokumentReply() {
     }
 
     public HamtaVarddokumentReply(
-           se.carelink.webservices.npo.ArrayOfKuvert kuvert) {
+           se.carelink.webservices.npo.Kuvert[] kuvert) {
            this.kuvert = kuvert;
     }
 
@@ -24,7 +24,7 @@ public class HamtaVarddokumentReply  extends se.carelink.webservices.npo.NPOMess
      * 
      * @return kuvert
      */
-    public se.carelink.webservices.npo.ArrayOfKuvert getKuvert() {
+    public se.carelink.webservices.npo.Kuvert[] getKuvert() {
         return kuvert;
     }
 
@@ -34,7 +34,7 @@ public class HamtaVarddokumentReply  extends se.carelink.webservices.npo.NPOMess
      * 
      * @param kuvert
      */
-    public void setKuvert(se.carelink.webservices.npo.ArrayOfKuvert kuvert) {
+    public void setKuvert(se.carelink.webservices.npo.Kuvert[] kuvert) {
         this.kuvert = kuvert;
     }
 
@@ -52,7 +52,7 @@ public class HamtaVarddokumentReply  extends se.carelink.webservices.npo.NPOMess
         _equals = super.equals(obj) && 
             ((this.kuvert==null && other.getKuvert()==null) || 
              (this.kuvert!=null &&
-              this.kuvert.equals(other.getKuvert())));
+              java.util.Arrays.equals(this.kuvert, other.getKuvert())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class HamtaVarddokumentReply  extends se.carelink.webservices.npo.NPOMess
         __hashCodeCalc = true;
         int _hashCode = super.hashCode();
         if (getKuvert() != null) {
-            _hashCode += getKuvert().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKuvert());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKuvert(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class HamtaVarddokumentReply  extends se.carelink.webservices.npo.NPOMess
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("kuvert");
         elemField.setXmlName(new javax.xml.namespace.QName("http://carelink.se/webservices/npo", "kuvert"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://carelink.se/webservices/npo", "ArrayOfKuvert"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://carelink.se/webservices/npo", "Kuvert"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://carelink.se/webservices/npo", "Kuvert"));
         typeDesc.addFieldDesc(elemField);
     }
 
